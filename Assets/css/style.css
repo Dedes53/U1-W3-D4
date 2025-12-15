@@ -27,6 +27,7 @@ body {
 :root {
   --text: #2f385c;
   --bgRed: #e10000;
+  --bgCartella: #85dbd3;
   --blocked: #ffffff62;
   --lighted: radial-gradient(circle, rgba(255, 251, 0, 1) 46%, rgba(255, 251, 0, 0.42) 100%);
 }
@@ -87,12 +88,12 @@ h1 {
   text-align: center;
   margin-inline: 2rem;
 }
-#cartelle {
+#cardContainer {
   width: 50rem;
   height: 35rem;
   /* max-height: 30rem; */
   font-size: 16px;
-  background-color: #85dbd3;
+  background: var(--bgCartella);
 }
 
 #controls {
