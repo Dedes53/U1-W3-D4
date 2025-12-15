@@ -6,6 +6,8 @@ const cardContainer = document.getElementById("cardContainer");
 //27 caselle totali
 const cells = 27;
 const numbers = 15;
+let cardArr = [];
+let selectedCells = []; //qua ci salverò le celle in cui andrò a scrivere i numeri
 
 function createCard() {
   const card = document.createElement("div");
@@ -17,11 +19,23 @@ function createCard() {
     cell.classList.add("cardCells");
     card.appendChild(cell);
   }
+  cardArr = Array.from(document.querySelectorAll(".cardCells"));
+  cardContainer.appendChild(card);
 }
-cardContainer.appendChild(card);
 
 //funzione che mi deve servire per scegliere 15 delle 27 celle della cartella.
-function extCell() {}
+function extCell() {
+  const selectedCells = new Set(); //con set evito duplicati
+
+  while (selectedCells.size < numbers) {
+    selectedCells.add(Math.ceil(Math.random() * 27));
+  }
+
+  return Array.from(selectedCells).sort((a, b) => a - b);
+}
+
+console.log(extCell());
+
 function generateUniqueNumbers(quantity, min, max) {
   const nums = [];
 
