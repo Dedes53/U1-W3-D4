@@ -1,21 +1,21 @@
+const board = document.getElementById("board"); //tabellone
+const extractbtn = document.getElementById("extraction"); //btn estrazioni
+const resetBtn = document.getElementById("reset"); //btn reset
+
+const amount = 89; //indice massimo tr a cui estrarre
+let index = amount; //indice per le estrazioni
+
+const nCells = 90; //n. di celle del tabellone
+
+let cellsArr = []; //variabile dove salvare tutte le celle del tabellone
+let number = []; //variabile con i numeri da estrarre
+let extnumber = []; //variabile con i nimeri estratti
+
 // 1) per 90 volte (con un for o un forEach su un array di 90 elementi) bisogna:
 // - creare un div
 // - riempire il div con un numero progressivo dall'1 al 90
 // - appendere il div al DOM
 // -> TABELLONE!
-const board = document.getElementById("board"); //tabellone
-const extractbtn = document.getElementById("extraction"); //btn estrazioni
-const resetBtn = document.getElementById("reset");
-
-let cellsArr = [];
-
-const amount = 89; //indice massimo tr a cui estrarre
-let index = amount;
-const nCells = 90;
-
-let number = [];
-let extnumber = [];
-
 function createBoard() {
   for (let i = 1; i <= nCells; i++) {
     const div = document.createElement("div");
@@ -28,10 +28,8 @@ function createBoard() {
 }
 createBoard();
 console.log(number);
+
 // 2) fare un button e collegarci una funzione: questa funzione deve ESTRARRE CASUALMENTE un numero dall'1 al 90
-// Math.random(); // -> torna un numero tra 0 e 1
-// Math.random() * 90; // -> 0.00000090 / 89.999999
-// Math.ceil(Math.random() * 90); // -> 1 / 90
 extractbtn.addEventListener("click", function () {
   //estraiamo casualmente lìindice dell'elemento estratto
   const n = Math.floor(Math.random() * index);
@@ -48,15 +46,8 @@ extractbtn.addEventListener("click", function () {
   index--; //riduciamo l'inice di uno ogni volta che un numero viene estratto e quindi l'array diminuisce di uno
 });
 
-/*
-  il resetBtn serve per azzerare tutte le estrazioni e ricominciare da capo una nuova partita. 
-  - togliere dalle celle la classe lighted
-  -svuotare l'array dei numeri estratti 
-  -riformare l'array dei numeri estraibili
-*/
-
+//azzero tutti gli array per poi ricrearli
 resetBtn.addEventListener("click", function () {
-  //azzero tutti gli array per poi ricrearli
   cellsArr.lenght = 0;
   number.length = 0;
   extnumber.length = 0;
