@@ -15,3 +15,18 @@ function createCard() {
 
   cardContainer.appendChild(card);
 }
+
+function generateUniqueNumbers(quantity, min, max) {
+  const nums = [];
+
+  while (nums.length < quantity) {
+    const rand = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!nums.includes(rand)) {
+      nums.push(rand);
+    }
+  }
+
+  return nums;
+}
+
+createCard();
