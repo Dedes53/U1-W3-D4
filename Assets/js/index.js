@@ -55,7 +55,16 @@ extractbtn.addEventListener("click", function () {
   -riformare l'array dei numeri estraibili
 */
 
-resetBtn.addEventListener("click", function () {});
+resetBtn.addEventListener("click", function () {
+  // cellsArr.forEach((cell) => cellsArr[cell].classList.remove("lighted"));
+  for (let i = 0; i < cellsArr.length; i++) {
+    cellsArr[i].classList.remove("lighted");
+  }
+  // extnumber.forEach((n) => extnumber[n].pop());
+  // number.forEach((n) => number[n].pop());
+
+  console.log(extnumber, number);
+});
 // 3) Una volta estratto un numero casuale, la casella corrispondente del tabellone deve illuminarsi
 
 console.log(document.querySelectorAll(".day"));
