@@ -3,7 +3,17 @@
 // - riempire il div con un numero progressivo dall'1 al 90
 // - appendere il div al DOM
 // -> TABELLONE!
-const board = document.getElementById("board");
+const board = document.getElementById("board"); //tabellone
+const extractbtn = document.getElementById("extraction"); //btn estrazioni
+const resetBtn = document.getElementById("reset");
+
+let cellsArr = [];
+
+const amount = 89; //indice massimo tra cui estrarre
+let index = amount;
+
+let number = [];
+let extnumber = [];
 
 function createBoard() {
   const nCells = 90;
@@ -12,14 +22,40 @@ function createBoard() {
     div.classList.add("cell", "blocked");
     div.innerText = i;
     board.appendChild(div);
+    number.push(i);
   }
+  cellsArr = Array.from(document.querySelectorAll(".cell"));
 }
 createBoard();
+console.log(number);
 // 2) fare un button e collegarci una funzione: questa funzione deve ESTRARRE CASUALMENTE un numero dall'1 al 90
-Math.random(); // -> torna un numero tra 0 e 1
-Math.random() * 90; // -> 0.00000090 / 89.999999
-Math.ceil(Math.random() * 90); // -> 1 / 90
+// Math.random(); // -> torna un numero tra 0 e 1
+// Math.random() * 90; // -> 0.00000090 / 89.999999
+// Math.ceil(Math.random() * 90); // -> 1 / 90
+extractbtn.addEventListener("click", function () {
+  //estraiamo casualmente lìindice dell'elemento estratto
+  const n = Math.floor(Math.random() * index);
+  extN = number[n];
+  //avendo l'indice aggiungiamo la classe alla casella della tombola e la rimuoviamo tra quelle da estrarre
+  cellsArr[n].classList.add("lighted");
+  cellsArr.splice(n, 1);
+  //troviamo l'elemento nell'array dei numeri disponibili, lo rimuoviamo e lo salviamo nell'array dei numeri estratti
+  console.log(extN);
+  number.splice(n, 1);
+  extnumber.push(extN);
 
+  console.log(number, extnumber);
+  index--; //riduciamo l'inice di uno ogni volta che un numero viene estratto e quindi l'array diminuisce di uno
+});
+
+/*
+  il resetBtn serve per azzerare tutte le estrazioni e ricominciare da capo una nuova partita. 
+  - togliere dalle celle la classe lighted
+  -svuotare l'array dei numeri estratti 
+  -riformare l'array dei numeri estraibili
+*/
+
+resetBtn.addEventListener("click", function () {});
 // 3) Una volta estratto un numero casuale, la casella corrispondente del tabellone deve illuminarsi
 
 console.log(document.querySelectorAll(".day"));
