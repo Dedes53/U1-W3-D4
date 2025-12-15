@@ -4,12 +4,14 @@
 // - appendere il div al DOM
 // -> TABELLONE!
 const board = document.getElementById("board");
+
 function createBoard() {
-  for (let i = 1; i <= 90; i++) {
+  const nCells = 90;
+  for (let i = 1; i <= nCells; i++) {
     const div = document.createElement("div");
-    div.classList.add("cell");
+    div.classList.add("cell", "blocked");
     div.innerText = i;
-    bard.appendChild(div);
+    board.appendChild(div);
   }
 }
 createBoard();

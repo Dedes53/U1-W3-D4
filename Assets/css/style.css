@@ -13,7 +13,7 @@ body {
 /* VARIABILI */
 :root {
   --blocked: #00000062;
-  --lighted: radial-gradient(circle, rgba(255, 245, 153, 1) 71%, rgba(255, 255, 255, 0.07) 100%);
+  --lighted: radial-gradient(circle, rgba(255, 251, 0, 1) 46%, rgba(255, 251, 0, 0.42) 100%);
 }
 
 /* === PAGINA INDEX === */
@@ -21,13 +21,79 @@ body {
 h1 {
   font-weight: bold;
   text-align: center;
+  padding: 1rem;
 }
 
-#board,
-#cartelle {
+.container {
+  font-size: 0;
+  margin-top: 1rem;
+}
+
+/* === TABELLONE === */
+#board {
+  text-align: center;
   display: inline-block;
+  vertical-align: top;
+  font-size: 16px;
+  width: 60rem;
+  padding: 3rem;
+  border-radius: 30px;
+  margin-inline: 2rem;
+  background: #e72e0d;
 }
 
-#tabellone {
-  max-width: 40%;
+.cell {
+  display: inline-block;
+  width: 4rem;
+  height: 4rem;
+  line-height: 4rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid #333;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+.blocked {
+  color: rgb(138, 137, 137);
+  background: var(--blocked);
+}
+.lighted {
+  color: rgb(106, 106, 106);
+  background: var(--lighted);
+}
+
+/* === CARTELLE === */
+#playerSide {
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  margin-inline: 2rem;
+}
+#cartelle {
+  width: 50rem;
+  height: 35rem;
+  /* max-height: 30rem; */
+  font-size: 16px;
+  background-color: #85dbd3;
+}
+
+#controls {
+  margin-top: 1rem;
+}
+#controls button {
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  border: none;
+  border-radius: 10px;
+  background-color: #e72e0d;
+  color: white;
+  cursor: pointer;
+}
+#controls button:hover {
+  background-color: #c0250a;
+}
+#controls button:active {
+  transform: scale(0.95);
 }
